@@ -1,12 +1,12 @@
 // import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/MyNavbar';
 
 // let name = 'Adi';
 function App() {
   return (
     <>
-      <Navbar title='Textutils'/>
+      <Navbar title='TextUtils' aboutText="About TextUtils"/>
     </>
   );
 }
