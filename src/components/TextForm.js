@@ -14,11 +14,11 @@ export default function TextForm(props) {
 
     const handlepalindrome = () => {
         // find the length of a string
-        const len = {text}.length;
+        const len = { text }.length;
         // loop through half of the string
         for (let i = 0; i < len / 2; i++) {
             // check if first and last string are same
-            if ({text}[i] !== {text}[len - 1 - i]) {
+            if ({ text }[i] !== { text }[len - 1 - i]) {
                 setText('It is Not a  palindrome word ');
             }
         }
@@ -33,22 +33,27 @@ export default function TextForm(props) {
     const [text, setText] = useState('');
     return (
         <>
-            <div className="container">
+            <div className="container" style={{ color: props.Mode === 'dark' ? 'white' : '#042743' }}>
                 <h1>{props.heading} </h1>
+
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.Mode === 'dark' ? 'grey' : 'white', color: props.Mode === 'dark' ? 'white' : '#042743' }} id="myBox" rows="8"></textarea>
                 </div>
+
                 <button className="btn btn-primary" onClick={handleUpClick}>Convert To UpperCase</button>
                 <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert To LowerCase</button>
                 <button className="btn btn-primary mx-2" onClick={handlepalindrome}>Check Palindrome Word</button>
-            </div>
-            <div className="container my-3">
+
+            </div >
+
+            <div className="container my-3" style={{ color: props.Mode === 'dark' ? 'white' : '#042743' }}>
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} & {text.length} Characters</p>
                 <p>{0.008 * text.split(" ").length} Minutes to Read  </p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length > 0 ? text : "Enter Text in Textbox To Preview"}</p>
             </div>
+
         </>
     )
 
