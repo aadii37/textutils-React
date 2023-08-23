@@ -5,29 +5,42 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.funcAlert("Converted to Uppercase", 'success')
     }
 
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.funcAlert("Converted to Lowercase", 'success')
     }
+    
+    const handletoClear = () =>{
+        let newText = '';
+        setText(newText);
+        props.funcAlert("Cleared The Text", 'success')
+    }
+    // const handlepalindrome = () => {
+    //     // find the length of a string
+    //     const len = { text }.length;
+    //     let p = ''
+    //     // loop through half of the string
+    //     for (let i = 0; i < len / 2; i++) {
+    //         // check if first and last string are same
+    //         if ({ text }[i] !== { text }[len - 1 - i]) {
+    //             let p = 'It is Not a  palindrome word '
+    //         }
+    //         else {
+    //             let p = 'It is a palindrome word'
+    //         }
+    //         setText(p)
+    //     }
 
-    const handlepalindrome = () => {
-        // find the length of a string
-        const len = { text }.length;
-        // loop through half of the string
-        for (let i = 0; i < len / 2; i++) {
-            // check if first and last string are same
-            if ({ text }[i] !== { text }[len - 1 - i]) {
-                setText('It is Not a  palindrome word ');
-            }
-        }
-        setText('It is a palindrome word');
-    }
+    // }
 
 
     const handleOnChange = (event) => {
         setText(event.target.value);
+
     }
 
     const [text, setText] = useState('');
@@ -42,7 +55,7 @@ export default function TextForm(props) {
 
                 <button className="btn btn-primary" onClick={handleUpClick}>Convert To UpperCase</button>
                 <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert To LowerCase</button>
-                <button className="btn btn-primary mx-2" onClick={handlepalindrome}>Check Palindrome Word</button>
+                <button className="btn btn-primary mx-2" onClick={handletoClear}>Clear Text</button>
 
             </div >
 
