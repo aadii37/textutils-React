@@ -1,11 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/MyNavbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React, { useState } from 'react';
-// import { BrowserRouter, Routes as Switch, Route} from "react-router-dom";
+import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
 
 // FUNCTIONS
 export default function App() {
@@ -46,18 +46,16 @@ export default function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
-      <Navbar title='TextUtils' Mode={dorl} togglenav={toggleMode} />
-      <Alert alert={dissalert} />
-      <div className="container my-3">
-        {/* <Switch> */}
-        {/* <Route exact path="/about" element={<About />}></Route> */}
-        {/* <Route exact path="/" element= */}
-        {<TextForm funcAlert={funcAlert} heading='Enter The Text To Analyze' Mode={dorl} />}
-        {/* ></Route> */}
-        {/* </Switch> */}
-      </div>
-      {/* </BrowserRouter> */}
+      <BrowserRouter>
+        <Navbar title='TextUtils' Mode={dorl} togglenav={toggleMode} />
+        <Alert alert={dissalert} />
+        <div className="container my-3">
+          <Switch>
+            <Route exact path="/about" element={<About />}></Route>
+            <Route exact path="/" element={<TextForm funcAlert={funcAlert} heading='Enter The Text To Analyze' Mode={dorl} />}></Route>
+          </Switch>
+        </div>
+      </BrowserRouter >
     </>
   );
 }
